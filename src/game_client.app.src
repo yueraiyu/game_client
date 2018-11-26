@@ -1,0 +1,15 @@
+{application, game_client,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  gproc,
+                  lager,
+                  protobuffs
+                 ]},
+  {mod, { game_client_app, []}},
+  {env, []}
+ ]}.
