@@ -154,7 +154,7 @@ handle_info({tcp, _Sock, Rep}, State) ->
          login_out ->
            {stop, login_out};
          {message, Msg} ->
-           lager:info("[~p] receive message from [~p] : [~p]", [self(), maps:get(from, Msg), maps:get(msg, Msg)]),
+           lager:info("[~p] receive message from [~p] : [~p]", [self(), Msg#send_msg_request_message.from, Msg#send_msg_request_message.msg]),
            {noreply, State};
          _ ->
            {noreply, State}
