@@ -11,6 +11,7 @@
 
 %% include client define
 -include("../include/game_client.hrl").
+-include("../../include/game_client_pb.hrl").
 
 -behaviour(gen_server).
 
@@ -229,7 +230,7 @@ console_detail() ->
   lager:info("%%% 6-change password "),
   lager:info("%%% Req format ~p~n", [#{oper => change_pass, data => #{new_pass => "****"}}]),
   lager:info("%%% 7-chang role "),
-  lager:info("%%% Req format ~p~n", [#{oper => chang_role, data => #{new_role => "****"}}]),
+  lager:info("%%% Req format ~p~n", [#{oper => change_role, data => #{new_role => "****"}}]),
   lager:info("%%% 8-add tools "),
   lager:info("%%% Req format ~p~n", [#{oper => add_tools, data => #{tools => [#{name => "***", lv => 0, logo => 0}]}}]),
   lager:info("%%% 9-delete tool "),
