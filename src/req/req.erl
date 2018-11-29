@@ -10,7 +10,7 @@
 -author("dhcd").
 
 %% API
--export([handle_req/1, login/3, register/3, login_out/3, upgrade/0, change_name/1, change_pass/1, chang_role/1, te/3, add_tools/1, delete_tools/1, upgrade_tools/1, add_equips/1, delete_equips/1, upgrade_equips/1, info/0, send_msg/3]).
+-export([handle_req/1, login/3, register/3, login_out/3, upgrade/0, change_name/1, change_pass/1, change_role/1, te/3, add_tools/1, delete_tools/1, upgrade_tools/1, add_equips/1, delete_equips/1, upgrade_equips/1, info/0, send_msg/3]).
 
 -include("../../include/game_client_pb.hrl").
 
@@ -69,8 +69,8 @@ change_pass(New_pass) ->
   Bin = list_to_binary(game_client_pb:encode_change_pass_request(Req)),
   <<Oper, Bin/binary>>.
 
--spec chang_role(New_role :: string()) -> binary().
-chang_role(New_role) ->
+-spec change_role(New_role :: string()) -> binary().
+change_role(New_role) ->
   Req = #change_role_request{data = #change_role_request_change_role{new_role = New_role}},
   Oper = game_client_pb:enum_to_int(operation, Req#change_role_request.oper),
   Bin = list_to_binary(game_client_pb:encode_change_role_request(Req)),
